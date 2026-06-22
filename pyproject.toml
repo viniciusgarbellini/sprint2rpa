@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sprint2-monitor"
+version = "2.0.0"
+description = "Sprint 2 — Visualização Operacional e Representação do Ativo (Digital Twin)"
+readme = "README.md"
+# Versão única e explícita do Python, alinhada ao Dockerfile (resolve o feedback
+# da Sprint 1 sobre ambiguidade de versão / estrutura de módulos antiga).
+requires-python = ">=3.12"
+
+# Dependências ABSTRATAS (nomes). As versões fixas (lock) ficam em
+# requirements.txt, usado pelo Docker para build reprodutível.
+dependencies = [
+    "psycopg[binary]",
+    "pydantic",
+    "pydantic-settings",
+    "loguru",
+    "apscheduler",
+    "pandas",
+    "pillow",
+    "streamlit",
+    "plotly",
+    "tenacity",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+# src-layout moderno: o pacote `sprint2` vive em src/sprint2.
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-q"

@@ -1,0 +1,14 @@
+# Dependências fixadas (lock) para build reprodutível em Docker.
+# As dependências abstratas estão em pyproject.toml; aqui ficam as versões.
+# Python alvo: 3.12 (mesma versão do Dockerfile — sem ambiguidade de versão).
+psycopg[binary]==3.2.3
+pydantic==2.9.2
+pydantic-settings==2.6.1
+loguru==0.7.2
+apscheduler==3.10.4
+pandas==2.2.3
+pillow==11.0.0
+streamlit==1.40.2
+plotly==5.24.1
+tenacity==9.0.0
+pytest==8.3.3

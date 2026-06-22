@@ -1,0 +1,6 @@
+tag,plant_code,plant_name,area_code,area_name
+MTR-001,PLT-SP,Planta Sao Paulo,A-BOMBAS,Bombeamento
+MTR-002,PLT-SP,Planta Sao Paulo,A-COMPRESSORES,Casa de Compressores
+MTR-003,PLT-SP,Planta Sao Paulo,A-ESTEIRAS,Linha 2 - Conveyor
+MTR-004,PLT-SP,Planta Sao Paulo,A-EXAUSTAO,Casa de Maquinas - Exaustao
+MTR-005,PLT-CP,Planta Campinas,A-UTILIDADES,Utilidades

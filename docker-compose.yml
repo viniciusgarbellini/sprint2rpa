@@ -1,0 +1,66 @@
+services:
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: sprint2_postgres
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-rpa_assets}
+      POSTGRES_USER: ${POSTGRES_USER:-rpa}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-rpa_secret_change_me}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-rpa} -d ${POSTGRES_DB:-rpa_assets}"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    restart: unless-stopped
+
+  # Orquestrador das RPAs (placa + associação). Aplica migrations no start.
+  app:
+    build: .
+    container_name: sprint2_app
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: ${POSTGRES_DB:-rpa_assets}
+      POSTGRES_USER: ${POSTGRES_USER:-rpa}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-rpa_secret_change_me}
+      LOG_LEVEL: INFO
+      LOG_FORMAT: json
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    command: ["python", "-m", "sprint2.main", "run"]
+    restart: unless-stopped
+
+  # Interface operacional (Streamlit) com login.
+  dashboard:
+    build: .
+    container_name: sprint2_dashboard
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: ${POSTGRES_DB:-rpa_assets}
+      POSTGRES_USER: ${POSTGRES_USER:-rpa}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-rpa_secret_change_me}
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    command: ["streamlit", "run", "src/sprint2/app/streamlit_app.py",
+              "--server.port=8501", "--server.address=0.0.0.0",
+              "--server.headless=true"]
+    restart: unless-stopped
+
+volumes:
+  pg_data:

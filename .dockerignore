@@ -1,0 +1,12 @@
+.git
+.venv
+venv
+__pycache__
+*.pyc
+.pytest_cache
+logs/
+data/nameplates_drop/*.png
+data/nameplates_archive/*.png
+.env
+docs/
+*.md

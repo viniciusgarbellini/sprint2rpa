@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+
+# Ambiente
+.env
+
+# Logs e dados gerados em runtime
+logs/
+data/nameplates_drop/*.png
+data/nameplates_archive/*.png
+data/associations/layout.csv
+
+# Mantém a estrutura das pastas de dados versionada
+!data/**/.gitkeep
+
+# IDE / SO
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
