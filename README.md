@@ -1,5 +1,7 @@
 # Sprint 2 — Visualização Operacional e Representação do Ativo
 
+**RMs:** 561864 · 563217 · 561681 · 561711 · 564504
+
 **Vídeo de demonstração:** https://www.youtube.com/watch?v=y8mZN0_Phh4
 
 > Continuação do projeto de Digital Twin de motores elétricos industriais.
