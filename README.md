@@ -99,8 +99,7 @@ SPRINT 2/
 └── docs/
     ├── arquitetura-sprint2.md
     ├── mapeamento-ativo-tag-localizacao.md
-    ├── pipeline-placa-cadastro.md
-    └── roteiro-video.md
+    └── pipeline-placa-cadastro.md
 ```
 
 ---
@@ -173,17 +172,12 @@ imagem→extração), validação dos modelos e autenticação.
   (`extractor._ocr_image`) — ver `docs/pipeline-placa-cadastro.md`.
 
 ---
-
 ## Entrega (requisitos não-funcionais)
 
-- **Repositório GitHub privado**: crie o repo privado e suba esta pasta
-  (ou um branch/diretório `sprint-2` no mesmo `rpa-cs`). Adicione o professor
-  como colaborador.
-- **Vídeo de demonstração**: roteiro pronto em `docs/roteiro-video.md`.
+- **Repositório GitHub**: https://github.com/viniciusgarbellini/sprint2rpa
+- **Vídeo de demonstração**: https://www.youtube.com/watch?v=y8mZN0_Phh4
 
 ---
 
 ## Licença
 Projeto acadêmico — uso livre para fins educacionais.
-#   s p r i n t 2 r p a  
- 
