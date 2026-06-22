@@ -53,7 +53,7 @@ A migration é **idempotente** e tem uma seção de "garantia mínima" das tabel
 | **Atualização sem input manual repetitivo** | RPAs idempotentes agendadas por cron (`src/sprint2/orchestrator.py`) |
 | **Controle de acesso + rastreabilidade** | login com papéis (`app/auth.py`) + `access_logs` + `execution_logs` |
 | **Estrutura preparada para ML** | ver [§ Preparado para ML](#preparado-para-ml-futuro) |
-| Repositório GitHub privado | (configurar no GitHub — ver § Entrega) |
+| Repositório GitHub | https://github.com/viniciusgarbellini/sprint2rpa |
 
 ---
 
